@@ -1,23 +1,26 @@
 package com.example.hellosender
 
+import android.app.Activity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val input = EditText(this).apply {
             hint = "HELLO_URL (https://.../hello.php)"
         }
-        val btn = Button(this).apply { text = "Gửi lời chào" }
+
+        val btn = Button(this).apply {
+            text = "Gửi lời chào"
+        }
 
         btn.setOnClickListener {
             val url = input.text.toString().trim()
